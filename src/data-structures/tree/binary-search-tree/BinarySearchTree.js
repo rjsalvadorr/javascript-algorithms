@@ -24,6 +24,7 @@ export default class BinarySearchTree {
    * @return {boolean}
    */
   contains(value) {
+    console.log(`\n\nSearching for ${value}...`);
     return this.root.contains(value);
   }
 

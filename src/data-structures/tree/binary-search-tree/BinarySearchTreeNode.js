@@ -59,18 +59,23 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
   find(value) {
     // Check the root.
     if (this.nodeValueComparator.equal(this.value, value)) {
+      console.log(`found ${value}!!`);
       return this;
     }
 
     if (this.nodeValueComparator.lessThan(value, this.value) && this.left) {
       // Check left nodes.
+      console.log('going left');
       return this.left.find(value);
     }
 
     if (this.nodeValueComparator.greaterThan(value, this.value) && this.right) {
       // Check right nodes.
+      console.log('going right');
       return this.right.find(value);
     }
+
+    console.log(`${value} not found`);
 
     return null;
   }
@@ -148,4 +153,12 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
 
     return this.left.findMin();
   }
+
+  // toString() {
+  //   let returnString = '';
+  //   returnString += `val = ${this.value}`;
+  //   returnString += this.right ? this.right.toString() : '';
+  //   returnString += this.left ? this.left.toString() : '';
+  //   return returnString;
+  // }
 }
